@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content_header %}
+  {{ build_breadcrumb(_('Callpermission'), '', 'ban', [_('List')]) }}
+{% endblock %}
+
+{% block content %}
+  <section class="content">
+    {% call build_list_containers(_('Callpermissions'), 'ban') %}
+      {% call build_list_table() %}
+        {% call build_list_table_headers(get=url_for('.CallpermissionView:get', id=''), delete=url_for('.CallpermissionView:delete', id='')) %}
+          <th>{{ _('Name') }}</th>
+          <th>{{ _('Password') }}</th>
+          <th>{{ _('Mode') }}</th>
+        {% endcall %}
+        {% call(callpermission) build_list_table_rows(resource_list['items']) %}
+          <td>{{ callpermission.name }}</td>
+          <td>{{ callpermission.password if callpermission.password else '-' }}</td>
+          <td>{{ callpermission.mode }}</td>
+        {% endcall %}
+      {% endcall %}
+    {% endcall %}
+
+    {% call build_hidden_add_containers(_('Add Callpermission')) %}
+      {% call build_form() %}
+        {% call add_default_fields(form=form, submit_value=_('Add')) %}
+          {{ render_field(form.name) }}
+          {{ render_field(form.mode) }}
+        {% endcall %}
+      {% endcall %}
+    {% endcall %}
+  </section>
+{% endblock %}
