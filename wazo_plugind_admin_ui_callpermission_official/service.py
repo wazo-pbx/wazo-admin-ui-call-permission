@@ -25,6 +25,12 @@ class CallPermissionService(BaseConfdService):
             })
         return result
 
+    def create(self, resource):
+        resource_id = super().create(resource)
+        self.update_users(resource_id, resource['user_ids'], [])
+        self.update_groups(resource_id, resource['group_ids'], [])
+        self.update_outcalls(resource_id, resource['outcall_ids'], [])
+
     def update(self, resource):
         super().update(resource)
         existing_resource = self.get(resource['id'])

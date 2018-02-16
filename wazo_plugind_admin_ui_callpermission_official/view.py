@@ -5,13 +5,13 @@ from flask import jsonify, request
 from flask_babel import lazy_gettext as l_
 from flask_menu.classy import classy_menu_item
 
-from wazo_admin_ui.helpers.classful import BaseView, LoginRequiredView
+from wazo_admin_ui.helpers.classful import BaseView, LoginRequiredView, NewViewMixin
 from wazo_admin_ui.helpers.classful import extract_select2_params, build_select2_response
 
 from .form import CallPermissionForm
 
 
-class CallPermissionView(BaseView):
+class CallPermissionView(NewViewMixin, BaseView):
     form = CallPermissionForm
     resource = 'callpermission'
 
