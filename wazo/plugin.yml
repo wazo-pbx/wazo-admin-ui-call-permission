@@ -2,10 +2,10 @@ name: admin-ui-callpermission
 namespace: official
 version: 1.0.0-1
 author: Wazo Team
-display_name: Callpermissions
+display_name: Call Permissions
 min_wazo_version: 18.03
 tags:
-  - callpermission
+  - application
 homepage: https://github.com/wazo-pbx/wazo-admin-ui-callpermission
 depends:
   - name: admin-ui-user
