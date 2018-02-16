@@ -5,7 +5,7 @@ from wazo_admin_ui.helpers.confd import confd
 from wazo_admin_ui.helpers.service import BaseConfdService
 
 
-class CallpermissionService(BaseConfdService):
+class CallPermissionService(BaseConfdService):
     resource_confd = 'call_permissions'
 
     def get(self, resource_id):

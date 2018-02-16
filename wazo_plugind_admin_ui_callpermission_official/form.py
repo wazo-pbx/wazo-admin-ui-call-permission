@@ -36,7 +36,7 @@ class OutcallForm(BaseForm):
     name = HiddenField()
 
 
-class CallpermissionForm(BaseForm):
+class CallPermissionForm(BaseForm):
     name = StringField(l_('Name'), validators=[InputRequired()])
     password = StringField(l_('Password'))
     extensions = FieldList(FormField(ExtensionsForm))

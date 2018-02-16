@@ -8,11 +8,11 @@ from flask_menu.classy import classy_menu_item
 from wazo_admin_ui.helpers.classful import BaseView, LoginRequiredView
 from wazo_admin_ui.helpers.classful import extract_select2_params, build_select2_response
 
-from .form import CallpermissionForm
+from .form import CallPermissionForm
 
 
-class CallpermissionView(BaseView):
-    form = CallpermissionForm
+class CallPermissionView(BaseView):
+    form = CallPermissionForm
     resource = 'callpermission'
 
     @classy_menu_item('.callpermissions', l_('Call Permissions'), order=8, icon='ban')
@@ -44,27 +44,22 @@ class CallpermissionView(BaseView):
         return results
 
     def _build_set_choices_groups(self, groups):
-        results = []
-        for group in groups:
-            results.append((group.form.id.data, group.form.name.data))
-        return results
+        return [(group.form.id.data, group.form.name.data) for group in groups]
 
     def _build_set_choices_outcalls(self, outcalls):
-        results = []
-        for outcall in outcalls:
-            results.append((outcall.form.id.data, outcall.form.name.data))
-        return results
+        return [(outcall.form.id.data, outcall.form.name.data) for outcall in outcalls]
 
     def _map_form_to_resources(self, form, form_id=None):
         data = super()._map_form_to_resources(form, form_id)
-        data['extensions'] = [extension['exten']  for extension in data['extensions']]
+        data['extensions'] = [extension['exten'] for extension in data['extensions']]
         return data
 
 
-class CallpermissionListingView(LoginRequiredView):
+class CallPermissionListingView(LoginRequiredView):
 
     def list_json(self):
         params = extract_select2_params(request.args)
         callpermissions = self.service.list(**params)
-        results = [{'id': callpermission['id'], 'text': callpermission['name']} for callpermission in callpermissions['items']]
+        results = [{'id': callpermission['id'], 'text': callpermission['name']}
+                   for callpermission in callpermissions['items']]
         return jsonify(build_select2_response(results, callpermissions['total'], params))

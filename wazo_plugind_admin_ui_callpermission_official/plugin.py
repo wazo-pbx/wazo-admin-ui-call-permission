@@ -6,8 +6,8 @@ from flask_menu.classy import register_flaskview
 from wazo_admin_ui.helpers.plugin import create_blueprint
 from wazo_admin_ui.helpers.destination import register_listing_url
 
-from .service import CallpermissionService
-from .view import CallpermissionView, CallpermissionListingView
+from .service import CallPermissionService
+from .view import CallPermissionView, CallPermissionListingView
 
 callpermission = create_blueprint('callpermission', __name__)
 
@@ -17,13 +17,13 @@ class Plugin(object):
     def load(self, dependencies):
         core = dependencies['flask']
 
-        CallpermissionView.service = CallpermissionService()
-        CallpermissionView.register(callpermission, route_base='/callpermissions')
-        register_flaskview(callpermission, CallpermissionView)
+        CallPermissionView.service = CallPermissionService()
+        CallPermissionView.register(callpermission, route_base='/callpermissions')
+        register_flaskview(callpermission, CallPermissionView)
 
-        CallpermissionListingView.service = CallpermissionService()
-        CallpermissionListingView.register(callpermission, route_base='/callpermissions_listing')
+        CallPermissionListingView.service = CallPermissionService()
+        CallPermissionListingView.register(callpermission, route_base='/callpermissions_listing')
 
-        register_listing_url('callpermission', 'callpermission.CallpermissionListingView:list_json')
+        register_listing_url('callpermission', 'callpermission.CallPermissionListingView:list_json')
 
         core.register_blueprint(callpermission)

@@ -17,7 +17,7 @@
         {{ add_tab_navigation_item('outcalls', _('Outcalls')) }}
       {% endcall %}
 
-      {% call build_form(action=url_for('.CallpermissionView:put', id=resource.id)) %}
+      {% call build_form(action=url_for('.CallPermissionView:put', id=resource.id)) %}
         {% call build_tabs_content() %}
 
           {% call build_tab_content_item('general', active=True) %}
