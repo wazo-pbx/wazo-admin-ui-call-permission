@@ -17,7 +17,7 @@ class CallPermissionService(BaseConfdService):
     def _build_user_list(self, users):
         result = []
         for user in users:
-            user_data = self.get_user(user['user_id'])
+            user_data = confd.users.get(user['user_id'])
             result.append({
                 'id': user['user_id'],
                 'firstname': user_data['firstname'],
@@ -52,6 +52,3 @@ class CallPermissionService(BaseConfdService):
                 confd.outcalls(existing_outcall_id).remove_call_permission(callpermission_id)
         for outcall_id in outcall_ids:
             confd.outcalls(outcall_id).add_call_permission(callpermission_id)
-
-    def get_user(self, user_id):
-        return confd.users.get(user_id)
