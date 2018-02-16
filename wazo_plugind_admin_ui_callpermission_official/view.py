@@ -51,6 +51,9 @@ class CallPermissionView(BaseView):
 
     def _map_form_to_resources(self, form, form_id=None):
         data = super()._map_form_to_resources(form, form_id)
+        data['user_ids'] = [user_id for user_id in form.user_ids.data]
+        data['group_ids'] = [group_id for group_id in form.group_ids.data]
+        data['outcall_ids'] = [outcall_id for outcall_id in form.outcall_ids.data]
         data['extensions'] = [extension['exten'] for extension in data['extensions']]
         return data
 
