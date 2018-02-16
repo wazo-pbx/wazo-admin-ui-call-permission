@@ -30,7 +30,7 @@ class CallPermissionService(BaseConfdService):
         existing_resource = self.get(resource['id'])
         self.update_users(resource['id'], resource['user_ids'], existing_resource['users'])
         self.update_groups(resource['id'], resource['group_ids'], existing_resource['groups'])
-        self.update_outcals(resource['id'], resource['outcall_ids'], existing_resource['outcalls'])
+        self.update_outcalls(resource['id'], resource['outcall_ids'], existing_resource['outcalls'])
 
     def update_users(self, callpermission_id, user_ids, existing_user_ids=None):
         if existing_user_ids:
@@ -46,7 +46,7 @@ class CallPermissionService(BaseConfdService):
         for groups_id in groups_ids:
             confd.groups(groups_id).add_call_permission(callpermission_id)
 
-    def update_outcals(self, callpermission_id, outcall_ids, existing_outcall_ids=None):
+    def update_outcalls(self, callpermission_id, outcall_ids, existing_outcall_ids=None):
         if existing_outcall_ids:
             for existing_outcall_id in existing_outcall_ids:
                 confd.outcalls(existing_outcall_id).remove_call_permission(callpermission_id)
