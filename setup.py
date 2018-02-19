@@ -9,7 +9,7 @@ setup(
     name='wazo_admin_ui_callpermission',
     version='0.1',
 
-    description='Wazo Admin UI Callpermission',
+    description='Wazo Admin UI Call Permissions',
 
     author='Wazo Authors',
     author_email='dev@wazo.community',
