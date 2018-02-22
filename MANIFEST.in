@@ -1,2 +1,2 @@
-recursive-include wazo_plugind_admin_ui_callpermission_official/templates *
-recursive-include wazo_plugind_admin_ui_callpermission_official/static *
+recursive-include wazo_plugind_admin_ui_call_permission_official/templates *
+recursive-include wazo_plugind_admin_ui_call_permission_official/static *

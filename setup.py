@@ -6,7 +6,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 setup(
-    name='wazo_admin_ui_callpermission',
+    name='wazo_admin_ui_call_permission',
     version='0.1',
 
     description='Wazo Admin UI Call Permissions',
@@ -22,7 +22,7 @@ setup(
 
     entry_points={
         'wazo_admin_ui.plugins': [
-            'callpermission = wazo_plugind_admin_ui_callpermission_official.plugin:Plugin',
+            'call_permission = wazo_plugind_admin_ui_call_permission_official.plugin:Plugin',
         ]
     }
 )

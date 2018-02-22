@@ -8,7 +8,7 @@ case "$1" in
         ;;
 
     package)
-        tar xvf dist/wazo_admin_ui_callpermission-*.tar.gz -C ${pkgdir}
+        tar xvf dist/wazo_admin_ui_call_permission-*.tar.gz -C ${pkgdir}
         cp -R etc ${pkgdir}/
         ;;
 
@@ -17,7 +17,7 @@ case "$1" in
         ;;
 
     uninstall)
-        rm -f /etc/wazo-admin-ui/conf.d/50-wazo-plugin-callpermission.yml
+        rm -f /etc/wazo-admin-ui/conf.d/50-wazo-plugin-call-permission.yml
         systemctl restart wazo-admin-ui
         ;;
 
