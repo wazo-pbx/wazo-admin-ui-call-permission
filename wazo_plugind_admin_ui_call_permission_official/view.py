@@ -13,7 +13,7 @@ from .form import CallPermissionForm
 
 class CallPermissionView(NewViewMixin, BaseView):
     form = CallPermissionForm
-    resource = 'callpermission'
+    resource = 'call_permission'
 
     @classy_menu_item('.callpermissions', l_('Call Permissions'), order=8, icon='ban')
     def index(self):

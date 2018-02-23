@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
 
 {% block content_header %}
-  {{ build_breadcrumb(_('CallPermission'), '', 'ban', [_('List')]) }}
+  {{ build_breadcrumb(_('Call Permissions'), '', 'ban', [_('List')]) }}
 {% endblock %}
 
 {% block content %}
   <section class="content">
-    {% call build_list_containers(_('CallPermissions'), 'ban') %}
+    {% call build_list_containers(_('Call Permissions'), 'ban') %}
       {% call build_list_table() %}
         {% call build_list_table_headers(
             add=url_for('.CallPermissionView:new'),
