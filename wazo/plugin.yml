@@ -1,6 +1,6 @@
 name: admin-ui-call-permission
 namespace: official
-version: 1.0.1-1
+version: 1.0.1-2
 author: Wazo Team
 display_name: Call Permissions
 min_wazo_version: 18.03
