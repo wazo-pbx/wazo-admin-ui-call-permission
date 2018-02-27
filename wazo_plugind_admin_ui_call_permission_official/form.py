@@ -15,6 +15,11 @@ from wtforms.validators import InputRequired
 
 from wazo_admin_ui.helpers.form import BaseForm, SelectField
 
+mode_map = {
+    'allow': l_('Allow'),
+    'deny': l_('Deny')
+}
+
 
 class ExtensionsForm(BaseForm):
     exten = StringField()
@@ -40,10 +45,7 @@ class CallPermissionForm(BaseForm):
     name = StringField(l_('Name'), validators=[InputRequired()])
     password = StringField(l_('Password'))
     extensions = FieldList(FormField(ExtensionsForm))
-    mode = SelectField(l_('Mode'), choices=[
-        ('allow', l_('Allow')),
-        ('deny', l_('Deny'))
-    ])
+    mode = SelectField(l_('Mode'), choices=[(k, v) for k, v in mode_map.items()])
     user_ids = SelectMultipleField(l_('Users'), choices=[])
     users = FieldList(FormField(UserForm))
     group_ids = SelectMultipleField(l_('Groups'), choices=[])
