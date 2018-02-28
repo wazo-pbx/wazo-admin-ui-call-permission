@@ -7,3 +7,4 @@ min_wazo_version: 18.03
 tags:
   - application
 homepage: https://github.com/wazo-pbx/wazo-admin-ui-call-permission
+icon: ban
